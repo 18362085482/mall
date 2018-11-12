@@ -10,7 +10,8 @@
 
     <context:component-scan base-package="com.mmall" annotation-config="true"/>
 
-    <mvc:annotation-driven>
+    <mvc:annotation-driven conversion-service="myDateConver">
+
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                 <property name="supportedMediaTypes">
@@ -37,6 +38,14 @@
         <property name="maxUploadSize" value="10485760"/> <!-- 10m -->
         <property name="maxInMemorySize" value="4096" />
         <property name="defaultEncoding" value="UTF-8"></property>
+    </bean>
+
+    <bean id="myDateConver" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.mmall.common.MyDateConverter"></bean>
+            </set>
+        </property>
     </bean>
 
 

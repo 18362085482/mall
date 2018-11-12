@@ -32,6 +32,7 @@
       <version>${org.springframework.version}</version>
     </dependency>
 
+    <!--支持传XML-->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-oxm</artifactId>
@@ -80,6 +81,7 @@
       <version>1.6.11</version>
     </dependency>
 
+    <!--springMVC接收json-->
     <dependency>
       <groupId>org.codehaus.jackson</groupId>
       <artifactId>jackson-mapper-asl</artifactId>

@@ -3,15 +3,18 @@ package com.mmall.controller.portal;
 import com.mmall.common.Const;
 import com.mmall.common.ResponseCode;
 import com.mmall.common.ServerResponse;
+import com.mmall.pojo.Order;
 import com.mmall.pojo.User;
 import com.mmall.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/user/")
@@ -20,6 +23,7 @@ public class UserController {
     @Autowired
     private IUserService iUserService;
 
+    private Map<String,Integer> map;
     /**
      * 用户登录
      *
@@ -124,4 +128,65 @@ public class UserController {
         }
         return iUserService.getInformation(currentUser.getId());
     }
+
+    @RequestMapping(value = "object.do", method = RequestMethod.GET)
+    @ResponseBody
+    public String object(User user,Order order){
+        return user.toString() + " " + order.toString();
+    }
+
+    @InitBinder("user")
+    public void initUser(WebDataBinder binder){
+        binder.setFieldDefaultPrefix("user.");
+    }
+
+    @InitBinder("order")
+    public void initOrder(WebDataBinder binder){
+        binder.setFieldDefaultPrefix("order.");
+    }
+
+    @RequestMapping(value = "date.do", method = RequestMethod.GET)
+    @ResponseBody
+    public long date(Date date){
+        return date.getTime();
+    }
+
+    @RequestMapping(value = "book", method = RequestMethod.GET)
+    @ResponseBody
+    public String date(HttpServletRequest request){
+        String contentType = request.getContentType();
+
+        if(contentType == null){
+            return "book.default";
+        }else if(contentType.equals("txt")){
+            return "book.txt";
+        }else{
+            return "book.html";
+        }
+    }
+
+    @RequestMapping(value = "subject/{subjectId}", method = RequestMethod.GET)
+    @ResponseBody
+    public String subjectGet(@PathVariable("subjectId") String subjectId){
+        return "get"+ subjectId;
+    }
+
+    @RequestMapping(value = "subject/{subjectId}", method = RequestMethod.POST)
+    @ResponseBody
+    public String subjectPost(@PathVariable("subjectId") String subjectId){
+        return "post"+ subjectId;
+    }
+
+    @RequestMapping(value = "subject/{subjectId}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public String subjectDelete(@PathVariable("subjectId") String subjectId){
+        return "delete"+ subjectId;
+    }
+
+    @RequestMapping(value = "subject/{subjectId}", method = RequestMethod.PUT)
+    @ResponseBody
+    public String subjectPut(@PathVariable("subjectId") String subjectId){
+        return "put"+ subjectId;
+    }
 }
+
