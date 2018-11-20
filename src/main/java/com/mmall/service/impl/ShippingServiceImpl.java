@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by geely
+ * Created by mier
  */
 @Service("iShippingService")
 public class ShippingServiceImpl implements IShippingService {

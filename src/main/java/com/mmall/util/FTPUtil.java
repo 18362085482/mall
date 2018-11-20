@@ -45,7 +45,7 @@ public class FTPUtil {
         //链接FTP服务器
         if(connectServer(this.ip,this.port,this.user,this.pwd)){
             try {
-//                ftpClient.changeWorkingDirectory(remotePath);
+                ftpClient.changeWorkingDirectory(remotePath);
                 ftpClient.setBufferSize(1024);
                 ftpClient.setControlEncoding("UTF-8");
                 ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);
