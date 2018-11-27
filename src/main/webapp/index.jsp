@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <html>
 <body>
-<h2>Hello World!22</h2>
+<h2>Hello World!11111</h2>
+<h2>Hello World!11111</h2>
+<h2>Hello World!11111</h2>
 
-<form name="form1" action="/manage/user/login.do" method="post" enctype="application/x-www-form-urlencoded">
+<form name="form1" action="/user/login.do" method="post" enctype="application/x-www-form-urlencoded">
     <input type="text" name="username">
     <input type="password" name="password">
     <input type="submit" value="登录">
