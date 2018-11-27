@@ -11,6 +11,14 @@
     <input type="submit" value="登录">
 </form>
 
+<form name="form1" action="/user/get_user_info.do" method="get" enctype="application/x-www-form-urlencoded">
+    <input type="submit" value="获取用户信息">
+</form>
+
+<form name="form1" action="/user/logout.do" method="get" enctype="application/x-www-form-urlencoded">
+    <input type="submit" value="登出">
+</form>
+
 springMVC上传文件
 <form name="form2" action="/manage/product/upload.do" method="post" enctype="multipart/form-data">
     <input type="file" name="upload_file"/>
