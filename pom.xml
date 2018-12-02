@@ -253,11 +253,11 @@
       <version>1.16.18</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.springframework.session</groupId>
-      <artifactId>spring-session-data-redis</artifactId>
-      <version>1.2.0.RELEASE</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.session</groupId>-->
+      <!--<artifactId>spring-session-data-redis</artifactId>-->
+      <!--<version>1.2.0.RELEASE</version>-->
+    <!--</dependency>-->
   </dependencies>
 
 
@@ -274,7 +274,7 @@
         </configuration>
       </plugin>
 
-      <!-- geelynote maven的核心插件之-complier插件默认只支持编译Java 1.4，因此需要加上支持高版本jre的配置，在pom.xml里面加上 增加编译插件 -->
+      <!-- miernote maven的核心插件之-complier插件默认只支持编译Java 1.4，因此需要加上支持高版本jre的配置，在pom.xml里面加上 增加编译插件 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * Created by geely
+ * Created by mier
  */
 public class SessionExpireFilter implements Filter {
     @Override

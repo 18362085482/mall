@@ -12,7 +12,7 @@ import org.codehaus.jackson.type.TypeReference;
 import java.text.SimpleDateFormat;
 
 /**
- * Created by geely
+ * Created by mier
  */
 @Slf4j
 public class JsonUtil {

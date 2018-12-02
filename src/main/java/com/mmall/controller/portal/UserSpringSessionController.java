@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Created by geely
+ * Created by mier
  */
 @Controller
 @RequestMapping("/user/springsession/")

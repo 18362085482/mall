@@ -143,7 +143,11 @@ public class Const {
             }
             throw new RuntimeException("么有找到对应的枚举");
         }
+    }
 
+
+    public interface  REDIS_LOCK{
+        String CLOSE_ORDER_TASK_LOCK = "CLOSE_ORDER_TASK_LOCK";
     }
 
 
