@@ -49,7 +49,7 @@ public class CloseOrderTask {
         log.info("关闭订单定时任务结束");
     }
 
-//    @Scheduled(cron = "0 */1 * * * ?")//每1分钟
+    @Scheduled(cron = "0 */1 * * * ?")//每1分钟
     public void closeOrderTaskV3(){
         log.info("关闭订单定时任务启动");
         long lockTimout = Long.parseLong(PropertiesUtil.getProperty("lock.timeout","5000"));
@@ -81,7 +81,7 @@ public class CloseOrderTask {
         log.info("关闭订单定时任务结束");
     }
 
-    @Scheduled(cron = "0 */1 * * * ?")//每1分钟
+//    @Scheduled(cron = "0 */1 * * * ?")//每1分钟
     public void closeOrderTaskV4(){
         log.info("关闭订单定时任务启动");
         RLock lock = redissonManager.getRedisson().getLock(LOCK_NAME);
@@ -90,7 +90,7 @@ public class CloseOrderTask {
             if(getLock = lock.tryLock(0,5,TimeUnit.SECONDS)){
                 log.info("Redisson获取分布式锁：{},ThreadName{}",LOCK_NAME,Thread.currentThread().getName());
                 int hour = Integer.parseInt(PropertiesUtil.getProperty("close.order.task.time.hour","2"));
-                //        iOderService.closeOrder(hour);
+                iOderService.closeOrder(hour);
             }else {
                 log.info("Redisson没有获取分布式锁：{},ThreadName{}",LOCK_NAME,Thread.currentThread().getName());
             }
@@ -109,7 +109,7 @@ public class CloseOrderTask {
         RedisShardedPoolUtil.expire(lockName,5);
         log.info("获取{},ThreadName:{}",LOCK_NAME,Thread.currentThread().getName());
         int hour = Integer.parseInt(PropertiesUtil.getProperty("close.order.task.time.hour","2"));
-//        iOderService.closeOrder(hour);
+        iOderService.closeOrder(hour);
         RedisShardedPoolUtil.del(LOCK_NAME);
         log.info("释放{},ThreadName:{}",LOCK_NAME,Thread.currentThread().getName());
         log.info("===========================");
